@@ -10,3 +10,6 @@ ln -s $HOME/dotfiles/.hbp $HOME/.hbp
 ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/dotfiles/.vim $HOME/.vim
 ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+
+# change ignore files
+git update-index --skip-worktree .hbp
