@@ -59,3 +59,6 @@ set statusline+=[%l/%L] "行数
 set statusline+=[%c] "列数
 set statusline+=[%{(&fenc!=''?&fenc:&enc).':'.&ff}] "ファイルエンコーディング
 set laststatus=2 "常に表示
+
+" vimplenote
+source .vimplenoterc
