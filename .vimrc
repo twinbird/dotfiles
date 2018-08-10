@@ -60,5 +60,17 @@ set statusline+=[%c] "列数
 set statusline+=[%{(&fenc!=''?&fenc:&enc).':'.&ff}] "ファイルエンコーディング
 set laststatus=2 "常に表示
 
-" vimplenote
-source .vimplenoterc
+"vimplenote
+source ~/.vimplenoterc
+"縦スプリットでウィンドウを作る
+let g:VimpleNoteVertical=0
+"マッピング
+:command Memo VimpleNote -l
+:command MemoNew VimpleNote -n
+:command MemoDel VimpleNote -d
+
+"ウィンドウ幅の変更のためのマッピング
+nnoremap <up> :resize +1<CR>
+nnoremap <down> :resize -1<CR>
+nnoremap <left> :vertical resize -1<CR>
+nnoremap <right> :vertical resize +1<CR>
