@@ -63,7 +63,7 @@ set laststatus=2 "常に表示
 "vimplenote
 source ~/.vimplenoterc
 "縦スプリットでウィンドウを作る
-let g:VimpleNoteVertical=0
+let g:VimpleNoteVertical=1
 "マッピング
 :command Memo VimpleNote -l
 :command MemoNew VimpleNote -n
