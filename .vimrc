@@ -15,6 +15,7 @@ set shiftwidth=4 "autoindentの改行時のタブ数
 set noexpandtab "タブをスペースに置き換えない
 set noswapfile  "スワップファイルを作らない
 set nobackup    "バックアップファイルを作らない
+set noundofile  "undoファイルを作らない
 set viminfo=    "viminfoファイルを作らない
 set hlsearch    "検索結果をハイライト
 set wrapscan    "検索結果の末尾まで来たら先頭から探し直す
@@ -60,15 +61,6 @@ set statusline+=[%l/%L] "行数
 set statusline+=[%c] "列数
 set statusline+=[%{(&fenc!=''?&fenc:&enc).':'.&ff}] "ファイルエンコーディング
 set laststatus=2 "常に表示
-
-"vimplenote
-source ~/.vimplenoterc
-"縦スプリットでウィンドウを作る
-let g:VimpleNoteVertical=1
-"マッピング
-:command Memo VimpleNote -l
-:command MemoNew VimpleNote -n
-:command MemoDel VimpleNote -d
 
 "ウィンドウ幅の変更のためのマッピング
 nnoremap <up> :resize +1<CR>
