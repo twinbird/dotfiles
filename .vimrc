@@ -15,6 +15,7 @@ set shiftwidth=4 "autoindentの改行時のタブ数
 set noexpandtab "タブをスペースに置き換えない
 set noswapfile  "スワップファイルを作らない
 set nobackup    "バックアップファイルを作らない
+set viminfo=    "viminfoファイルを作らない
 set hlsearch    "検索結果をハイライト
 set wrapscan    "検索結果の末尾まで来たら先頭から探し直す
 set wildmenu wildmode=list:full   "補完機能を強化
