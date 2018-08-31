@@ -12,7 +12,9 @@ colorscheme desert
 " フォント設定:
 "---------------------------------------------------------------------------
 " MSゴシック10ポイント
-set guifont=MS_Gothic:h10:cSHIFTJIS
+"set guifont=MS_Gothic:h10:cSHIFTJIS
+" Ricty12ポイント
+set guifont=Ricty_Diminished:h12:cSHIFTJIS:qDRAFT
 " 行間隔の設定
 set linespace=1
 
@@ -57,6 +59,19 @@ set langmenu=none
 source $VIMRUNTIME/menu.vim
 
 "---------------------------------------------------------------------------
+" ターミナルエミュレータ設定
+"---------------------------------------------------------------------------
+" ターミナルエミュレータのカラー
+let g:terminal_ansi_colors = [
+  \ "#373c40", "#ff5454", "#8cc85f", "#e3c78a",
+  \ "#80a0ff", "#ce76e8", "#7ee0ce", "#c9c9c9",
+  \ "#f09479", "#f74782", "#42cf89", "#cfcfb0",
+  \ "#78c2ff", "#ae81ff", "#85dc85", "#e2637f"
+  \]
+" <Leader>tで現在のウィンドウでWSL Bashを開く
+nnoremap <Leader>t :terminal ++close ++curwin bash -c "cd; bash -l"<CR>
+
+"---------------------------------------------------------------------------
 "その他
 "---------------------------------------------------------------------------
 "挿入モード時に半角に
@@ -64,3 +79,4 @@ set iminsert=1
 
 " 起動時にホームへ移動
 cd $HOME
+
