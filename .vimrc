@@ -67,3 +67,6 @@ nnoremap <up> :resize +1<CR>
 nnoremap <down> :resize -1<CR>
 nnoremap <left> :vertical resize -1<CR>
 nnoremap <right> :vertical resize +1<CR>
+
+"NERDTree用マッピング
+map <C-e> :NERDTreeToggle<CR>

@@ -10,4 +10,4 @@ ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
 mkdir -p .vim/pack/mypackage/start/
 curl -sL https://github.com/kien/ctrlp.vim/archive/1.79.tar.gz | tar xz -C .vim/pack/mypackage/start/
 curl -sL https://github.com/dhruvasagar/vim-table-mode/archive/v4.6.7.tar.gz | tar xz -C .vim/pack/mypackage/start/
-
+curl -sL https://github.com/scrooloose/nerdtree/archive/5.0.0.tar.gz | tar xz -C .vim/pack/mypackage/start/
