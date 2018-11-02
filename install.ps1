@@ -13,7 +13,7 @@ Copy-Item $HOME/dotfiles/.vim $HOME/vimfiles -Recurse
 # Download vim plugin
 # package location
 $package_path="vimfiles/pack/mypackage/start"
-New-Item $package_path -type directory -Force
+mkdir $HOME"/"$package_path
 
 # ctrlp
 invoke-webrequest -uri https://github.com/kien/ctrlp.vim/archive/1.79.tar.gz -outfile $HOME"/"$package_path"/ctrlp.tar.gz"
@@ -28,4 +28,4 @@ invoke-webrequest -uri https://github.com/scrooloose/nerdtree/archive/5.0.0.tar.
 tar xfz $HOME"/"$package_path"/nerdtree.tar.gz" -C $HOME"/"$package_path
 
 # remove tar files
-remove-item $package_path"/*.tar.gz"
+remove-item $HOME"/"$package_path"/*.tar.gz"
