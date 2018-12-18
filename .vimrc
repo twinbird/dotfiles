@@ -66,5 +66,9 @@ nnoremap <down> :resize -1<CR>
 nnoremap <left> :vertical resize -1<CR>
 nnoremap <right> :vertical resize +1<CR>
 
+"マウス設定
+set mouse=a
+set ttymouse=xterm2
+
 "NERDTree用マッピング
 map <C-e> :NERDTreeToggle<CR>
