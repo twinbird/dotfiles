@@ -23,9 +23,5 @@ tar xfz $HOME"/"$package_path"/ctrlp.tar.gz" -C $HOME"/"$package_path
 invoke-webrequest -uri https://github.com/dhruvasagar/vim-table-mode/archive/v4.6.7.tar.gz -outfile $HOME"/"$package_path"/vim-table-mode.tar.gz"
 tar xfz $HOME"/"$package_path"/vim-table-mode.tar.gz" -C $HOME"/"$package_path
 
-# nerdtree
-invoke-webrequest -uri https://github.com/scrooloose/nerdtree/archive/5.0.0.tar.gz -outfile $HOME"/"$package_path"/nerdtree.tar.gz"
-tar xfz $HOME"/"$package_path"/nerdtree.tar.gz" -C $HOME"/"$package_path
-
 # remove tar files
 remove-item $HOME"/"$package_path"/*.tar.gz"

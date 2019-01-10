@@ -70,5 +70,7 @@ nnoremap <right> :vertical resize +1<CR>
 set mouse=a
 set ttymouse=xterm2
 
-"NERDTree用マッピング
-map <C-e> :NERDTreeToggle<CR>
+"netrw設定
+let g:netrw_liststyle = 3 "tree viewにしておく
+let g:netrw_altv = 1 "vで開くときに右側で開く
+let g:netrw_alto = 1 "oで開くときに下側で開く
