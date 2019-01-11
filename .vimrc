@@ -74,3 +74,9 @@ set ttymouse=xterm2
 let g:netrw_liststyle = 3 "tree viewにしておく
 let g:netrw_altv = 1 "vで開くときに右側で開く
 let g:netrw_alto = 1 "oで開くときに下側で開く
+
+"vimplenote設定
+if filereadable( $HOME . "/.vimplenoterc" )
+	source ~/.vimplenoterc
+endif
+let g:VimpleNoteVertical = 1
