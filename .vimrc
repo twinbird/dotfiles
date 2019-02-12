@@ -20,7 +20,6 @@ set showmode    "モードの表示
 set backspace=2 "改行、インデントをバックスペースで削除可能に
 set title       "編集中のファイル名を表示
 set ruler       "ルーラー(右下に出る行数を表示するの)を表示
-set cursorline  "カーソル行をハイライト
 set tabstop=4   "タブ数
 set shiftwidth=4 "autoindentの改行時のタブ数
 set noexpandtab "タブをスペースに置き換えない
