@@ -47,7 +47,7 @@ filetype indent on
 filetype plugin on
 
 "カラースキーム
-colorscheme elflord
+colorscheme desert
 
 "折りたたみ
 "  シンタックスで折りたたみ
