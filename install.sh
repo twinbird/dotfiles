@@ -3,12 +3,12 @@
 # links to dotfiles
 ln -s $HOME/dotfiles/.dircolors $HOME/.dircolors
 ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
-ln -s $HOME/dotfiles/.vim $HOME/.vim
-ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/dotfiles/vimfiles $HOME/.vim
+ln -s $HOME/dotfiles/_vimrc $HOME/.vimrc
 
 # download vim plugin
-mkdir -p .vim/pack/mypackage/start/
-cd ~/.vim/pack/mypackage/start
+mkdir -p $HOME/.vim/pack/mypackage/start/
+cd $HOME/.vim/pack/mypackage/start
 
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/dhruvasagar/vim-table-mode.git

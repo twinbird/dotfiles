@@ -1,13 +1,20 @@
 #!/bin/sh
 
-# links to dotfiles
-ln -s $HOME/dotfiles/.vim $HOME/.vim
-ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
-ln -s $HOME/dotfiles/.minttyrc $HOME/.minttyrc
+# remove old files
+rm -rf $HOME/vimfiles
+rm -f $HOME/_vimrc
+rm -f $HOME/_gvimrc
+rm -f $HOME/.minttyrc
+
+# copy new files
+cp -r $HOME/dotfiles/vimfiles $HOME/vimfiles
+cp $HOME/dotfiles/_vimrc $HOME/_vimrc
+cp $HOME/dotfiles/_gvimrc $HOME/_gvimrc
+cp $HOME/dotfiles/.minttyrc $HOME/.minttyrc
 
 # download vim plugin
-mkdir -p .vim/pack/mypackage/start/
-cd ~/.vim/pack/mypackage/start
+mkdir -p $HOME/vimfiles/pack/mypackage/start/
+cd $HOME/vimfiles/pack/mypackage/start
 
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/dhruvasagar/vim-table-mode.git
