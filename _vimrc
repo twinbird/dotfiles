@@ -34,6 +34,8 @@ set wrap        "長い行は折り返す
 set undolevels=100 "undoできる数
 "ハイライトをEsc2回で消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+":findで探せるように開いたディレクトリ以下をpathに入れる
+set path+=**
 
 "vimgrep関連のマッピング
 "ctrl-g2回でカーソル文字列をvimgrep(jumpはしない.オプションj)
