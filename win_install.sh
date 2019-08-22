@@ -25,11 +25,3 @@ git clone https://github.com/dhruvasagar/vim-table-mode.git
 
 cd -
 
-# download vim plugin
-mkdir -p $HOME/.vim/pack/mypackage/start/
-cd $HOME/.vim/pack/mypackage/start
-
-git clone https://github.com/kien/ctrlp.vim.git
-git clone https://github.com/dhruvasagar/vim-table-mode.git
-
-cd -
