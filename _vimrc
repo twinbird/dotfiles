@@ -58,12 +58,32 @@ set foldlevel=100
 set foldcolumn=3
 
 "ステータスライン
+"	選択中の行数と文字数を数える関数
+function! VisualSelectionSize()
+    if mode() == "v"
+        exe "normal \<ESC>gv"
+        if line("'<") != line("'>")
+            return (line("'>") - line("'<") + 1) . ' lines'
+        else
+            return (col("'>") - col("'<") + 1) . ' chars'
+        endif
+    elseif mode() == "V"
+        exe "normal \<ESC>gv"
+        return (line("'>") - line("'<") + 1) . ' lines'
+    elseif mode() == "\<C-V>"
+        exe "normal \<ESC>gv"
+        return (line("'>") - line("'<") + 1) . 'x' . (abs(col("'>") - col("'<")) + 1) . ' block'
+    else
+        return ''
+    endif
+endfunction
 set statusline=%f "ファイル相対パス
 set statusline+=%m "修正フラグ
 set statusline+=%r "読み取り専用フラグ
 set statusline+=%= "以降右詰め
 set statusline+=[%l/%L] "行数
 set statusline+=[%c] "列数
+set statusline+=[%{VisualSelectionSize()}] "選択中の行数
 set statusline+=[%{(&fenc!=''?&fenc:&enc).':'.&ff}] "ファイルエンコーディング
 set laststatus=2 "常に表示
 
