@@ -117,3 +117,11 @@ highlight TabLineSel ctermfg=Black ctermbg=LightGreen
 
 "タグ対応移動を強化する
 source $VIMRUNTIME/macros/matchit.vim
+
+" テキスト用のfold関数
+function! TextIndent(lnum)
+  if getline(a:lnum) =~? '\v^\s*$'
+    return '-1'
+  endif
+  return '>' . (indent(a:lnum) / shiftwidth() + 1)
+endfunction
