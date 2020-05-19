@@ -14,5 +14,6 @@ git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/dhruvasagar/vim-table-mode.git
 git clone https://github.com/mattn/vim-goimports.git
 git clone https://github.com/tpope/vim-surround.git
+git clone https://github.com/rhysd/vim-clang-format.git
 
 cd -

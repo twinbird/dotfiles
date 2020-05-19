@@ -43,6 +43,10 @@ nmap <C-G><C-G> :vimgrep /<C-R><C-W>/j **/*
 "Quickfix結果を別ウィンドウで開く
 autocmd QuickFixCmdPost *grep* cwindow
 
+"保存時にclang-formatで自動フォーマット
+autocmd FileType c ClangFormatAutoEnable
+autocmd FileType cpp ClangFormatAutoEnable
+
 "拡張子に合わせていい感じに
 filetype on
 filetype indent on
@@ -118,10 +122,3 @@ highlight TabLineSel ctermfg=Black ctermbg=LightGreen
 "タグ対応移動を強化する
 source $VIMRUNTIME/macros/matchit.vim
 
-" テキスト用のfold関数
-function! TextIndent(lnum)
-  if getline(a:lnum) =~? '\v^\s*$'
-    return '-1'
-  endif
-  return '>' . (indent(a:lnum) / shiftwidth() + 1)
-endfunction
