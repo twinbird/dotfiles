@@ -1,0 +1,4 @@
+function _compreply_ssh(){
+  COMPREPLY=(`cat ~/.ssh/config | grep -i -e '^host' | cut -d " " -f 2 | grep -E "$2"`)
+}
+complete -F _compreply_ssh ssh scp sftp
