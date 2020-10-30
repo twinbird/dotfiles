@@ -102,7 +102,6 @@ let g:netrw_liststyle = 3 "tree viewにしておく
 let g:netrw_altv = 1 "vで開くときに右側で開く
 let g:netrw_alto = 1 "oで開くときに下側で開く
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+' ".で始まるファイルは非表示
-let g:netrw_winsize = 25 "netrwのウィンドウサイズ
 
 "C-eでnetrwを開く
 nnoremap <C-e> :Vex %:h/<CR>
