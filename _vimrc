@@ -37,12 +37,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 ":findで探せるように開いたディレクトリ以下をpathに入れる
 set path+=**
 
-"vimgrep関連のマッピング
-"ctrl-g2回でカーソル文字列をvimgrep(jumpはしない.オプションj)
-nmap <C-G><C-G> :vimgrep /<C-R><C-W>/j **/*
-"Quickfix結果を別ウィンドウで開く
-autocmd QuickFixCmdPost *grep* cwindow
-
 "保存時にclang-formatで自動フォーマット
 autocmd FileType c ClangFormatAutoEnable
 autocmd FileType cpp ClangFormatAutoEnable
@@ -56,10 +50,9 @@ filetype plugin on
 colorscheme desert
 
 "折りたたみ
-"  シンタックスで折りたたみ
-set foldmethod=syntax
-set foldlevel=100
-set foldcolumn=3
+set foldmethod=indent
+set foldlevel=2
+set foldcolumn=2
 
 "ステータスライン
 "	選択中の行数と文字数を数える関数
@@ -91,12 +84,6 @@ set statusline+=[%{VisualSelectionSize()}] "選択中の行数
 set statusline+=[%{(&fenc!=''?&fenc:&enc).':'.&ff}] "ファイルエンコーディング
 set laststatus=2 "常に表示
 
-"ウィンドウ幅の変更のためのマッピング
-nnoremap <up> :resize +1<CR>
-nnoremap <down> :resize -1<CR>
-nnoremap <left> :vertical resize -1<CR>
-nnoremap <right> :vertical resize +1<CR>
-
 "マウス設定
 if has('mouse')
 	set mouse=a
@@ -115,10 +102,13 @@ let g:netrw_liststyle = 3 "tree viewにしておく
 let g:netrw_altv = 1 "vで開くときに右側で開く
 let g:netrw_alto = 1 "oで開くときに下側で開く
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+' ".で始まるファイルは非表示
+let g:netrw_winsize = 25 "netrwのウィンドウサイズ
+
+"C-eでnetrwを開く
+nnoremap <C-e> :Vex %:h/<CR>
 
 "選択中タブの色
 highlight TabLineSel ctermfg=Black ctermbg=LightGreen
 
 "タグ対応移動を強化する
 source $VIMRUNTIME/macros/matchit.vim
-
