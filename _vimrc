@@ -51,7 +51,7 @@ colorscheme desert
 
 "折りたたみ
 set foldmethod=indent
-set foldlevel=2
+set foldlevel=100
 set foldcolumn=2
 
 "ステータスライン
