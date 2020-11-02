@@ -111,3 +111,12 @@ highlight TabLineSel ctermfg=Black ctermbg=LightGreen
 
 "タグ対応移動を強化する
 source $VIMRUNTIME/macros/matchit.vim
+
+"grep検索結果をQuickFixウィンドウへ出力
+autocmd QuickFixCmdPost *grep* cwindow
+
+"grepはgit grepにする
+set grepprg=git\ grep\ -I\ --line-number
+
+"silentでgrep実行(:Grep)
+command! -nargs=+ Grep execute 'silent grep! <args>' |:redraw! 
