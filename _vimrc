@@ -120,3 +120,6 @@ set grepprg=git\ grep\ -I\ --line-number
 
 "silentでgrep実行(:Grep)
 command! -nargs=+ Grep execute 'silent grep! <args>' |:redraw! 
+
+"保存時にtagsを更新
+au BufWritePost * silent! ! [ -e tags ] && ctags -R &
