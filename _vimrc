@@ -37,10 +37,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 ":findで探せるように開いたディレクトリ以下をpathに入れる
 set path+=**
 
-"保存時にclang-formatで自動フォーマット
-autocmd FileType c ClangFormatAutoEnable
-autocmd FileType cpp ClangFormatAutoEnable
-
 "拡張子に合わせていい感じに
 filetype on
 filetype indent on
@@ -123,3 +119,4 @@ command! -nargs=+ Grep execute 'silent grep! <args>' |:redraw!
 
 "保存時にtagsを更新
 au BufWritePost * silent! ! [ -e tags ] && ctags -R &
+
