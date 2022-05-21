@@ -126,6 +126,7 @@ filetype plugin on
 
 "sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtab
 autocmd FileType c           setlocal sw=2 sts=0 ts=2 et
+autocmd FileType cpp         setlocal sw=2 sts=0 ts=2 et
 autocmd FileType go          setlocal sw=4 sts=0 ts=4 noet
 autocmd FileType sh          setlocal sw=2 sts=0 ts=2 et
 autocmd FileType javascript  setlocal sw=2 sts=0 ts=2 et
