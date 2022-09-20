@@ -31,6 +31,7 @@ set wrapscan    "検索結果の末尾まで来たら先頭から探し直す
 set wildmenu wildmode=list:full   "補完機能を強化
 set wrap        "長い行は折り返す
 set undolevels=100 "undoできる数
+set list listchars=tab:>- "タブを表示
 
 "カラースキーム
 colorscheme desert
@@ -42,6 +43,8 @@ set foldcolumn=2
 
 "選択中タブの色
 highlight TabLineSel ctermfg=Black ctermbg=LightGreen
+"タブインデントの色
+highlight SpecialKey ctermbg=None ctermfg=59
 
 "ハイライトをEsc2回で消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
@@ -133,7 +136,7 @@ autocmd FileType javascript  setlocal sw=2 sts=0 ts=2 et
 autocmd FileType typescript  setlocal sw=4 sts=0 ts=4 et
 autocmd FileType html        setlocal sw=4 sts=0 ts=4 et
 autocmd FileType json        setlocal sw=4 sts=0 ts=4 et
-autocmd FileType php         setlocal sw=4 sts=0 ts=4 et
+autocmd FileType php         setlocal sw=4 sts=0 ts=4 noet
 
 "---------------------------------------------------------------------------
 " 言語別設定
