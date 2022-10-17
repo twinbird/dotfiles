@@ -17,6 +17,7 @@ set showmatch   "括弧入力時に対応する括弧を強調
 set backspace=2 "改行、インデントをバックスペースで削除可能に
 set wildmenu wildmode=list:full   "補完機能を強化
 set undolevels=100 "undoできる数
+set list listchars=tab:>- "タブを表示
 
 " 検索
 set incsearch   "インクリメンタルサーチ(入力ごとに検索するやつ)on
@@ -34,6 +35,8 @@ set viminfo=    "viminfoファイルを作らない
 colorscheme desert
 "選択中タブの色
 highlight TabLineSel ctermfg=Black ctermbg=LightGreen
+"タブインデントの色
+highlight SpecialKey ctermbg=None ctermfg=59
 
 "ハイライトをEsc2回で消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
@@ -82,7 +85,7 @@ autocmd FileType javascript  setlocal sw=2 sts=0 ts=2 et
 autocmd FileType typescript  setlocal sw=4 sts=0 ts=4 et
 autocmd FileType html        setlocal sw=4 sts=0 ts=4 et
 autocmd FileType json        setlocal sw=4 sts=0 ts=4 et
-autocmd FileType php         setlocal sw=4 sts=0 ts=4 et
+autocmd FileType php         setlocal sw=4 sts=0 ts=4 noet
 
 "---------------------------------------------------------------------------
 " 言語別設定
