@@ -71,10 +71,16 @@ source $VIMRUNTIME/macros/matchit.vim
 " インデント
 "---------------------------------------------------------------------------
 set autoindent  "自動インデント
-set smartindent	"賢いインデントに
+set smartindent "賢いインデントに
 filetype on
 filetype indent on
 filetype plugin on
+
+" デフォルトでは4タブにしとく
+set sw=4
+set sts=0
+set ts=4
+set noex
 
 "sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtab
 autocmd FileType c           setlocal sw=2 sts=0 ts=2 et
