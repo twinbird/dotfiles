@@ -18,6 +18,7 @@ set backspace=2 "改行、インデントをバックスペースで削除可能
 set wildmenu wildmode=list:full   "補完機能を強化
 set undolevels=100 "undoできる数
 set list listchars=tab:>- "タブを表示
+set number " 行番号を表示
 
 " 検索
 set incsearch   "インクリメンタルサーチ(入力ごとに検索するやつ)on
