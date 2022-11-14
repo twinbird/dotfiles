@@ -1,0 +1,14 @@
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+startup_message off
+vbell off
+escape ^Tt
+# term color
+defbce on
+term xterm-256color
+# enable mouse scroll
+termcapinfo xterm* ti@:te@
+defscrollback 10000
+hardstatus alwayslastline "%{= cd} %-w%{= wk} %n %t* %{-}%+w"
+altscreen on
