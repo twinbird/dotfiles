@@ -2,8 +2,8 @@
 
 # links to dotfiles
 ln -s $HOME/dotfiles/.dircolors $HOME/.dircolors
-#ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
-ln -s $HOME/dotfiles/.screenrc $HOME/.screenrc
+ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+#ln -s $HOME/dotfiles/.screenrc $HOME/.screenrc
 ln -s $HOME/dotfiles/_vimrc $HOME/.vimrc
 
 # bash configuration notes
