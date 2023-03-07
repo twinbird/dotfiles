@@ -41,6 +41,10 @@ highlight SpecialKey ctermbg=None ctermfg=59
 
 "ハイライトをEsc2回で消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" バッファ操作のバインディング
+nnoremap <silent> <C-j> :bprev<CR>
+nnoremap <silent> <C-k> :bnext<CR>
+nnoremap <silent> <C-l> :ls<CR>
 
 ":findで探せるように開いたディレクトリ以下をpathに入れる
 set path+=**
