@@ -42,15 +42,16 @@ highlight SpecialKey ctermbg=None ctermfg=59
 "ハイライトをEsc2回で消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " バッファ操作のバインディング
-nnoremap <silent> <C-j> :bprev<CR>
-nnoremap <silent> <C-k> :bnext<CR>
-nnoremap <silent> <C-l> :ls<CR>
+nnoremap <silent> <C-j> :bnext<CR>
+nnoremap <silent> <C-k> :bprev<CR>
 
 ":findで探せるように開いたディレクトリ以下をpathに入れる
 set path+=**
 
 "grep検索結果をQuickFixウィンドウへ出力
 autocmd QuickFixCmdPost *grep* cwindow
+"grepをgit grepにする
+set grepprg=git\ grep\ -I\ --line-number
 
 " ステータスラインを表示
 set laststatus=2
@@ -91,15 +92,18 @@ set ts=4
 set noex
 
 "sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtab
-autocmd FileType c           setlocal sw=2 sts=0 ts=2 et
-autocmd FileType cpp         setlocal sw=2 sts=0 ts=2 et
-autocmd FileType go          setlocal sw=4 sts=0 ts=4 noet
-autocmd FileType sh          setlocal sw=2 sts=0 ts=2 et
-autocmd FileType javascript  setlocal sw=2 sts=0 ts=2 noet
-autocmd FileType typescript  setlocal sw=4 sts=0 ts=4 noet
-autocmd FileType html        setlocal sw=4 sts=0 ts=4 et
-autocmd FileType json        setlocal sw=4 sts=0 ts=4 et
-autocmd FileType php         setlocal sw=4 sts=0 ts=4 noet
+autocmd FileType text             setlocal sw=2 sts=0 ts=2 et
+autocmd FileType c                setlocal sw=2 sts=0 ts=2 et
+autocmd FileType cpp              setlocal sw=2 sts=0 ts=2 et
+autocmd FileType go               setlocal sw=4 sts=0 ts=4 noet
+autocmd FileType sh               setlocal sw=2 sts=0 ts=2 et
+autocmd FileType javascript       setlocal sw=2 sts=0 ts=2 noet
+autocmd FileType typescript       setlocal sw=2 sts=0 ts=2 et
+autocmd FileType typescriptreact  setlocal sw=2 sts=0 ts=2 et
+autocmd FileType javascriptreact  setlocal sw=2 sts=0 ts=2 et
+autocmd FileType html             setlocal sw=4 sts=0 ts=4 et
+autocmd FileType json             setlocal sw=4 sts=0 ts=4 et
+autocmd FileType php              setlocal sw=4 sts=0 ts=4 noet
 
 "---------------------------------------------------------------------------
 " 言語別設定
@@ -113,3 +117,11 @@ let g:php_sql_query     = 1
 " sh(bash)
 let g:is_bash = 1
 let g:sh_fold_enabled= 3
+
+"---------------------------------------------------------------------------
+" 雑な補完設定
+"---------------------------------------------------------------------------
+autocmd FileType *
+\   if &l:omnifunc == ''
+\ |   setlocal omnifunc=syntaxcomplete#Complete
+\ | endif
