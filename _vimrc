@@ -138,14 +138,14 @@ nnoremap <Leader>e :Fern . -drawer -toggle<CR>
 "---------------------------------------------------------------------------
 " LSP
 "---------------------------------------------------------------------------
-" ファイルのエラー表示Diagnosticsを表示
-let g:lsp_diagnostics_enabled = 1
+" ファイルのエラー表示Diagnosticsを表示(1/0)
+let g:lsp_diagnostics_enabled = 0
+" diagnosticsの列を固定で出すか(yes/no)
+setlocal signcolumn=no
 " 自動で入力補完ポップアップを表示
 let g:asyncomplete_auto_popup = 1
 " ポップアップ表示までのディレイ
 let g:asyncomplete_popup_delay = 200
-" diagnosticsの列を固定で出す
-setlocal signcolumn=yes
 
 " Leader + dで定義へ移動
 nnoremap <Leader>d :LspDefinition<CR>
