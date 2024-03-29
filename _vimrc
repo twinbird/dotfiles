@@ -57,6 +57,10 @@ set laststatus=2
 " 編集中ファイルでもバッファ切り替えできるように
 set hidden
 
+" OSとのクリップボード共有
+set clipboard&
+set clipboard^=unnamedplus
+
 "---------------------------------------------------------------------------
 " マウス設定
 "---------------------------------------------------------------------------
@@ -103,9 +107,11 @@ augroup ag2indent
 	autocmd FileType typescript       setlocal sw=2 sts=0 ts=2 et
 	autocmd FileType javascriptreact  setlocal sw=2 sts=0 ts=2 et
 	autocmd FileType typescriptreact  setlocal sw=2 sts=0 ts=2 et
+	autocmd FileType vue              setlocal sw=2 sts=0 ts=2 et
 	autocmd FileType html             setlocal sw=4 sts=0 ts=4 et
 	autocmd FileType json             setlocal sw=4 sts=0 ts=4 et
 	autocmd FileType php              setlocal sw=4 sts=0 ts=4 noet
+	autocmd FileType text             setlocal sw=2 sts=0 ts=2 et nonumber
 augroup END
 
 " PHP
