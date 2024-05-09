@@ -124,3 +124,15 @@ let g:php_sql_query     = 1
 let g:is_bash = 1
 let g:sh_fold_enabled= 3
 
+"---------------------------------------------------------------------------
+" プラグイン
+"---------------------------------------------------------------------------
+call plug#begin()
+Plug 'tpope/vim-surround'
+Plug 'babarot/vim-buftabs'
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/vim-molder'
+Plug 'AndrewRadev/splitjoin.vim'
+call plug#end()
+
