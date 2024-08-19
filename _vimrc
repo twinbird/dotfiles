@@ -133,6 +133,5 @@ Plug 'babarot/vim-buftabs'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/vim-molder'
-Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 
