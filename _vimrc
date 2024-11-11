@@ -60,6 +60,18 @@ set hidden
 " OSとのクリップボード共有
 set clipboard&
 set clipboard^=unnamedplus
+" WSL環境で
+if filereadable('/proc/version') && readfile('/proc/version')[0] =~ 'Microsoft'
+  " xselが入っていれば
+  if executable('xsel')
+    " C-cで選択範囲をクリップボードへコピー
+    vmap <C-c> :w !xsel -ib<CR><CR>
+  endif
+endif
+" F2でペーストモードをトグルする
+set pastetoggle=<F2>
+" Insertモードから出るときにnopasteにする
+autocmd InsertLeave * set nopaste
 
 "---------------------------------------------------------------------------
 " マウス設定
@@ -92,6 +104,15 @@ set sw=4
 set sts=0
 set ts=4
 set noex
+
+"---------------------------------------------------------------------------
+" 補完
+"---------------------------------------------------------------------------
+" omni補完にシンタックスハイライトのシンタックスを追加する
+autocmd FileType *
+\   if &l:omnifunc == ''
+\ |   setlocal omnifunc=syntaxcomplete#Complete
+\ | endif
 
 "---------------------------------------------------------------------------
 " 言語別設定
@@ -133,5 +154,10 @@ Plug 'babarot/vim-buftabs'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/vim-molder'
+Plug 'mattn/vim-molder-operations'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
+" fzf
+nnoremap <silent> <leader>f :Files<CR>
