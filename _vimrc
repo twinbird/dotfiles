@@ -113,6 +113,8 @@ autocmd FileType *
 \   if &l:omnifunc == ''
 \ |   setlocal omnifunc=syntaxcomplete#Complete
 \ | endif
+" 補完は複数候補の時にポップアップメニューのみ
+set completeopt=menuone
 
 "---------------------------------------------------------------------------
 " 言語別設定
