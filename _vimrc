@@ -16,6 +16,7 @@ syntax on       "構文カラー表示on
 set showmatch   "括弧入力時に対応する括弧を強調
 set backspace=2 "改行、インデントをバックスペースで削除可能に
 set wildmenu wildmode=list:full   "補完機能を強化
+set wildoptions=fuzzy "補完をファジーに
 set undolevels=100 "undoできる数
 set list listchars=tab:>- "タブを表示
 set number " 行番号を表示
@@ -48,9 +49,6 @@ nnoremap <silent> <C-k> :bprev<CR>
 ":findで探せるように開いたディレクトリ以下をpathに入れる
 set path+=**
 
-"grep検索結果をQuickFixウィンドウへ出力
-autocmd QuickFixCmdPost *grep* cwindow
-
 " ステータスラインを表示
 set laststatus=2
 
@@ -78,8 +76,29 @@ autocmd InsertLeave * set nopaste
 "---------------------------------------------------------------------------
 if has('mouse')
   set mouse=a
-  set ttymouse=xterm2
+  if has('mouse_sgr')
+    set ttymouse=sgr
+  elseif v:version > 703 || v:version is 703 && has('patch632')
+    set ttymouse=sgr
+  else
+    set ttymouse=xterm2
+  endif
 endif
+
+"---------------------------------------------------------------------------
+" grepとQuickFix
+"---------------------------------------------------------------------------
+" grepはgit grepにする
+set grepprg=git\ grep\ -I\ -n\ --no-color
+
+" キーバインド
+nnoremap <silent> <C-n> :cnext<CR>
+nnoremap <silent> <C-p> :cprev<CR>
+nnoremap <Leader>o :copen<CR>
+nnoremap <Leader>c :cclose<CR>
+
+" grep検索結果をQuickFixウィンドウへ出力
+autocmd QuickFixCmdPost *grep* cwindow
 
 "---------------------------------------------------------------------------
 " 標準プラグインの設定
@@ -157,9 +176,4 @@ Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/vim-molder'
 Plug 'mattn/vim-molder-operations'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 call plug#end()
-
-" fzf
-nnoremap <silent> <leader>f :Files<CR>
