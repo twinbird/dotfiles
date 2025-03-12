@@ -42,9 +42,6 @@ highlight SpecialKey ctermbg=None ctermfg=59
 
 "ハイライトをEsc2回で消去
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
-" バッファ操作のバインディング
-nnoremap <silent> <C-j> :bnext<CR>
-nnoremap <silent> <C-k> :bprev<CR>
 
 ":findで探せるように開いたディレクトリ以下をpathに入れる
 set path+=**
@@ -66,8 +63,6 @@ if filereadable('/proc/version') && readfile('/proc/version')[0] =~ 'Microsoft'
     vmap <C-c> :w !xsel -ib<CR><CR>
   endif
 endif
-" F2でペーストモードをトグルする
-set pastetoggle=<F2>
 " Insertモードから出るときにnopasteにする
 autocmd InsertLeave * set nopaste
 
@@ -94,8 +89,6 @@ set grepprg=git\ grep\ -I\ -n\ --no-color
 " キーバインド
 nnoremap <silent> <C-n> :cnext<CR>
 nnoremap <silent> <C-p> :cprev<CR>
-nnoremap <Leader>o :copen<CR>
-nnoremap <Leader>c :cclose<CR>
 
 " grep検索結果をQuickFixウィンドウへ出力
 autocmd QuickFixCmdPost *grep* cwindow
@@ -105,10 +98,13 @@ autocmd QuickFixCmdPost *grep* cwindow
 "---------------------------------------------------------------------------
 " netrw
 let g:netrw_banner = 0 "バナーを非表示にする
-let g:netrw_liststyle = 3 "tree viewにしておく
+" matchit
+packadd! matchit
+" editorconfig
+"packadd! editorconfig
+" comment
+"packadd! comment
 
-" matchit(タグ対応移動を強化する)
-source $VIMRUNTIME/macros/matchit.vim
 "---------------------------------------------------------------------------
 " インデント
 "---------------------------------------------------------------------------
@@ -125,55 +121,30 @@ set ts=4
 set noex
 
 "---------------------------------------------------------------------------
-" 補完
-"---------------------------------------------------------------------------
-" omni補完にシンタックスハイライトのシンタックスを追加する
-autocmd FileType *
-\   if &l:omnifunc == ''
-\ |   setlocal omnifunc=syntaxcomplete#Complete
-\ | endif
-" 補完は複数候補の時にポップアップメニューのみ
-set completeopt=menuone
-
-"---------------------------------------------------------------------------
-" 言語別設定
-"---------------------------------------------------------------------------
-" インデント
-"sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtab
-augroup ag2indent
-	autocmd FileType c                setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType cpp              setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType go               setlocal sw=4 sts=0 ts=4 noet
-	autocmd FileType sh               setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType javascript       setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType typescript       setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType javascriptreact  setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType typescriptreact  setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType vue              setlocal sw=2 sts=0 ts=2 et
-	autocmd FileType html             setlocal sw=4 sts=0 ts=4 et
-	autocmd FileType json             setlocal sw=4 sts=0 ts=4 et
-	autocmd FileType php              setlocal sw=4 sts=0 ts=4 noet
-	autocmd FileType text             setlocal sw=2 sts=0 ts=2 et nonumber
-augroup END
-
-" PHP
-let g:php_baselib       = 0
-let g:php_htmlInStrings = 1
-let g:php_noShortTags   = 1
-let g:php_sql_query     = 1
-
-" sh(bash)
-let g:is_bash = 1
-let g:sh_fold_enabled= 3
-
-"---------------------------------------------------------------------------
 " プラグイン
 "---------------------------------------------------------------------------
 call plug#begin()
-Plug 'tpope/vim-surround'
-Plug 'babarot/vim-buftabs'
-Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/vim-molder'
-Plug 'mattn/vim-molder-operations'
+Plug 'tpope/vim-commentary'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 call plug#end()
+
+"---------------------------------------------------------------------------
+" vim-lsp
+"---------------------------------------------------------------------------
+function! s:on_lsp_buffer_enabled() abort
+    " omni補完設定
+    setlocal omnifunc=lsp#complete
+    " 定義へ移動
+    nmap <buffer> gd <plug>(lsp-definition)
+    " 参照を検索
+    nmap <buffer> gr <plug>(lsp-references)
+    " カーソル下の定義をポップアップ
+    nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
