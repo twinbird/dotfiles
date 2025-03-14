@@ -142,6 +142,8 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gr <plug>(lsp-references)
     " カーソル下の定義をポップアップ
     nmap <buffer> K <plug>(lsp-hover)
+    " diagnosticsの列を消す
+    setlocal signcolumn=no
 endfunction
 
 augroup lsp_install
