@@ -51,6 +51,9 @@ set laststatus=2
 
 " 編集中ファイルでもバッファ切り替えできるように
 set hidden
+" バッファ操作のバインディング
+nnoremap <silent> <C-j> :bnext<CR>
+nnoremap <silent> <C-k> :bprev<CR>
 
 " OSとのクリップボード共有
 set clipboard&
@@ -128,6 +131,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'babarot/vim-buftabs'
 call plug#end()
 
 "---------------------------------------------------------------------------
