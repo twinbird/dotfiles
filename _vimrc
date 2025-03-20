@@ -137,6 +137,8 @@ call plug#end()
 "---------------------------------------------------------------------------
 " vim-lsp
 "---------------------------------------------------------------------------
+" 診断機能をOFF
+let g:lsp_diagnostics_enabled = 0
 function! s:on_lsp_buffer_enabled() abort
     " omni補完設定
     setlocal omnifunc=lsp#complete
