@@ -132,6 +132,7 @@ Plug 'tpope/vim-commentary'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'babarot/vim-buftabs'
+Plug 'mattn/vim-goimports'
 call plug#end()
 
 "---------------------------------------------------------------------------
