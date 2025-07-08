@@ -56,16 +56,9 @@ nnoremap <silent> <C-j> :bnext<CR>
 nnoremap <silent> <C-k> :bprev<CR>
 
 " OSとのクリップボード共有
+" clipboardオプションの実行にはWSL(Ubuntu)環境ではvim-gtk3のインストールが手っ取り早い
 set clipboard&
 set clipboard^=unnamedplus
-" WSL環境で
-if filereadable('/proc/version') && readfile('/proc/version')[0] =~ 'Microsoft'
-  " xselが入っていれば
-  if executable('xsel')
-    " C-cで選択範囲をクリップボードへコピー
-    vmap <C-c> :w !xsel -ib<CR><CR>
-  endif
-endif
 " Insertモードから出るときにnopasteにする
 autocmd InsertLeave * set nopaste
 
@@ -117,11 +110,11 @@ filetype on
 filetype indent on
 filetype plugin on
 
-" デフォルトでは4タブにしとく
-set sw=4
+" デフォルトでは2スペースにしとく
+set sw=2
 set sts=0
-set ts=4
-set noex
+set ts=2
+set expandtab
 
 "---------------------------------------------------------------------------
 " プラグイン
