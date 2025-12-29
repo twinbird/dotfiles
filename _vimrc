@@ -55,10 +55,6 @@ set hidden
 nnoremap <silent> <C-j> :bnext<CR>
 nnoremap <silent> <C-k> :bprev<CR>
 
-" OSとのクリップボード共有
-" clipboardオプションの実行にはWSL(Ubuntu)環境ではvim-gtk3のインストールが手っ取り早い
-set clipboard&
-set clipboard^=unnamedplus
 " Insertモードから出るときにnopasteにする
 autocmd InsertLeave * set nopaste
 
