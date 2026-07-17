@@ -91,11 +91,11 @@ autocmd QuickFixCmdPost *grep* cwindow
 " netrw
 let g:netrw_banner = 0 "バナーを非表示にする
 " matchit
-packadd! matchit
+silent! packadd! matchit
 " editorconfig
-"packadd! editorconfig
+silent! packadd! editorconfig
 " comment
-"packadd! comment
+silent! packadd! comment
 
 "---------------------------------------------------------------------------
 " インデント
@@ -116,33 +116,6 @@ set expandtab
 " プラグイン
 "---------------------------------------------------------------------------
 call plug#begin()
-Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-commentary'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
 Plug 'babarot/vim-buftabs'
-Plug 'mattn/vim-goimports'
+Plug 'godlygeek/tabular'
 call plug#end()
-
-"---------------------------------------------------------------------------
-" vim-lsp
-"---------------------------------------------------------------------------
-" 診断機能をOFF
-let g:lsp_diagnostics_enabled = 0
-function! s:on_lsp_buffer_enabled() abort
-    " omni補完設定
-    setlocal omnifunc=lsp#complete
-    " 定義へ移動
-    nmap <buffer> gd <plug>(lsp-definition)
-    " 参照を検索
-    nmap <buffer> gr <plug>(lsp-references)
-    " カーソル下の定義をポップアップ
-    nmap <buffer> K <plug>(lsp-hover)
-    " diagnosticsの列を消す
-    setlocal signcolumn=no
-endfunction
-
-augroup lsp_install
-    au!
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
