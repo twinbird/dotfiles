@@ -58,6 +58,9 @@ nnoremap <silent> <C-k> :bprev<CR>
 " Insertモードから出るときにnopasteにする
 autocmd InsertLeave * set nopaste
 
+" clipboard有効化
+set clipboard=unnamedplus
+
 "---------------------------------------------------------------------------
 " マウス設定
 "---------------------------------------------------------------------------
